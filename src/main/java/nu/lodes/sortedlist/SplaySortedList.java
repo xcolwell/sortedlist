@@ -3,7 +3,7 @@ package nu.lodes.sortedlist;
 import java.util.AbstractList;
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.NoSuchElementException;
+import java.util.Iterator;
 
 import javax.annotation.Nullable;
 
@@ -28,6 +28,8 @@ import com.google.common.collect.Ordering;
  * @see CLR
  * @see (based on) ftp://ftp.cs.cmu.edu/usr/ftp/usr/sleator/splaying/SplayTree.java
  */
+// FIXME document the comparator consistent with equals
+// FIXME support duplicates? is the resulting order stable?
 // FIXME
 // #search should splay
 // #iterator/#listIterator should not splay
@@ -308,22 +310,6 @@ public final class SplaySortedList<E> extends AbstractList<E> implements SortedL
     /////// SortedList IMPLEMENTATION ///////
     
     @Override
-    public E first() {
-        if (isEmpty()) {
-            throw new NoSuchElementException();
-        }
-        return get(0);
-    }
-    
-    @Override
-    public E last() {
-        if (isEmpty()) {
-            throw new NoSuchElementException();
-        }
-        return get(size() - 1);
-    }
-    
-    @Override
     public @Nullable E lower(E value) {
         return lower(comparable(value, comparator));
     }
@@ -533,6 +519,18 @@ public final class SplaySortedList<E> extends AbstractList<E> implements SortedL
     }
     
     @Override
+    public int indexOf(Comparable<? super E> q) {
+        // FIXME
+        throw new UnsupportedOperationException();
+    }
+    
+    @Override
+    public int lastIndexOf(Comparable<? super E> q) {
+        // FIXME
+        throw new UnsupportedOperationException();
+    }
+    
+    @Override
     public int indexOf(Object value) {
         if (null == value) {
             return -1;
@@ -712,5 +710,24 @@ public final class SplaySortedList<E> extends AbstractList<E> implements SortedL
             this.index = index;
             this.c = c;
         }
+    }
+    
+    
+    /** Tests if for successive items <code>x</code> from the iterator,
+     * <code>q.compareTo(x)</code> is monotonically increasing. */
+    private static <T> boolean isMonotonicallyIncreasing(Iterator<T> sortedItr, Comparable<? super T> q) {
+        if (!sortedItr.hasNext()) {
+            return true;
+        }
+        int ps = -1;
+        while (sortedItr.hasNext()) {
+            int c = q.compareTo(sortedItr.next());
+            int s = c < 0 ? -1 : 0 < c ? 1 : 0;
+            if (s < ps) {
+                return false;
+            }
+            ps = s;
+        }
+        return true;
     }
 }
