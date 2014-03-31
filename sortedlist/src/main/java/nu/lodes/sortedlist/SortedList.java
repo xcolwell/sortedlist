@@ -81,13 +81,13 @@ public interface SortedList<E> extends List<E> {
 
 
     /** (optional operation) 
-     * @param q <code>compareTo</code> must be monotonic on the sorted values in the list 
+     * @param q <code>compareTo</code> must be monotonically increasing over the ordered elements in the list 
      * @return the least index <code>i</code> in this list where <code>q.compareTo(get(i)) == 0</code>, 
      * or <code>-1</code> if there is no such element. */
     int indexOf(Comparable<? super E> q);
     
     /** (optional operation)
-     * @param q <code>compareTo</code> must be monotonic on the sorted values in the list
+     * @param q <code>compareTo</code> must be monotonically increasing over the ordered elements in the list 
      * @return the greatest index <code>i</code> in this list where <code>q.compareTo(get(i)) == 0</code>, 
      * or <code>-1</code> if there is no such element. */
     int lastIndexOf(Comparable<? super E> q);
@@ -98,7 +98,7 @@ public interface SortedList<E> extends List<E> {
      * @see java.util.NavigableSet#lower */
     @Nullable E lower(E value);
     /** (optional operation)
-     * @param q <code>compareTo</code> must be monotonic on the sorted values in the list
+     * @param q <code>compareTo</code> must be monotonically increasing over the ordered elements in the list 
      * @return the greatest element <code>x</code> in this list where <code>q.compareTo(x) &lt; 0</code>, 
      * or <code>null</code> if there is no such element. */
     @Nullable E lower(Comparable<? super E> q);
@@ -108,7 +108,7 @@ public interface SortedList<E> extends List<E> {
      * or <code>-1</code> if there is no such element. */
     int lowerIndex(E value);
     /** (optional operation)
-     * @param q <code>compareTo</code> must be monotonic on the sorted values in the list
+     * @param q <code>compareTo</code> must be monotonically increasing over the ordered elements in the list 
      *  @return the greatest index <code>i</code> in this list where <code>q.compareTo(get(i)) &lt; 0</code>, 
      * or <code>-1</code> if there is no such element. */
     int lowerIndex(Comparable<? super E> q);
@@ -119,7 +119,7 @@ public interface SortedList<E> extends List<E> {
      * or <code>null</code> if there is no such element.
      * @see java.util.NavigableSet#floor */
     @Nullable E floor(E value);
-    /** @param q <code>compareTo</code> must be monotonic on the sorted values in the list
+    /** @param q <code>compareTo</code> must be monotonically increasing over the ordered elements in the list 
      * @return the greatest element <code>x</code> in this list where <code>q.compareTo(x) &lt; 0</code>, 
      * or the least element <code>x</code> in this list where <code>q.compareTo(x) == 0</code>,
      * or <code>-1</code> if there is no such element. */
@@ -131,7 +131,7 @@ public interface SortedList<E> extends List<E> {
      * or <code>-1</code> if there is no such element. */
     int floorIndex(E value);
     /** (optional operation)
-     * @param q <code>compareTo</code> must be monotonic on the sorted values in the list
+     * @param q <code>compareTo</code> must be monotonically increasing over the ordered elements in the list 
      * @return the greatest index <code>i</code> in this list where <code>q.compareTo(get(i)) &lt; 0</code>, 
      * or the least index <code>i</code> in this list where <code>q.compareTo(get(i)) == 0</code>,
      * or <code>-1</code> if there is no such element. */
@@ -143,7 +143,7 @@ public interface SortedList<E> extends List<E> {
      * @see java.util.NavigableSet#higher */
     @Nullable E higher(E value);
     /** (optional operation)
-     * @param q <code>compareTo</code> must be monotonic on the sorted values in the list
+     * @param q <code>compareTo</code> must be monotonically increasing over the ordered elements in the list 
      * @return the least element <code>x</code> in this list where <code>0 &lt; q.compareTo(x)</code>, 
      * or <code>null</code> if there is no such element.
      * @see java.util.NavigableSet#higher */
@@ -154,7 +154,7 @@ public interface SortedList<E> extends List<E> {
      * or <code>size()</code> if there is no such element. */
     int higherIndex(E value);
     /** (optional operation)
-     * @param q <code>compareTo</code> must be monotonic on the sorted values in the list
+     * @param q <code>compareTo</code> must be monotonically increasing over the ordered elements in the list 
      * @return the least index <code>i</code> in this list where <code>0 &lt; q.compareTo(get(i))</code>, 
      * or <code>size()</code> if there is no such element. */
     int higherIndex(Comparable<? super E> q);
@@ -166,7 +166,7 @@ public interface SortedList<E> extends List<E> {
      * @see java.util.NavigableSet#ceiling */
     @Nullable E ceiling(E value);
     /** (optional operation)
-     * @param q <code>compareTo</code> must be monotonic on the sorted values in the list
+     * @param q <code>compareTo</code> must be monotonically increasing over the ordered elements in the list 
      * @return the least element <code>x</code> in this list where <code>0 &lt; q.compareTo(x)</code>,
      * or the greatest element <code>x</code> in this list where where <code>q.compareTo(x) == 0</code>,
      * or <code>null</code> if there is no such element. */
@@ -178,7 +178,7 @@ public interface SortedList<E> extends List<E> {
      * or <code>size()</code> if there is no such element. */
     int ceilingIndex(E value);
     /** (optional operation)
-     * @param q <code>compareTo</code> must be monotonic on the sorted values in the list
+     * @param q <code>compareTo</code> must be monotonically increasing over the ordered elements in the list 
      * @return the least index <code>i</code> in this list where <code>0 &lt; q.compareTo(get(i))</code>,
      * or the greatest index <code>i</code> in this list where where <code>q.compareTo(get(i)) == 0</code>,
      * or <code>size()</code> if there is no such element. */
