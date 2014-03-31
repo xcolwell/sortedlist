@@ -28,13 +28,10 @@ import com.google.common.collect.Ordering;
  * @see CLR
  * @see (based on) ftp://ftp.cs.cmu.edu/usr/ftp/usr/sleator/splaying/SplayTree.java
  */
-// FIXME document the comparator consistent with equals
-// FIXME support duplicates? is the resulting order stable?
-// FIXME
-// #search should splay
-// #iterator/#listIterator should not splay
-// FIXME more efficient listiterator requires parent link on nodes
-// FIXME the iteration can set/unset temp parent links on the nodes; but this requires no concurrent iterators
+// FIXME inserting in sequential order bad perf
+// FIXME support duplicates
+// FIXME implement SortedList API correctly
+// FIXME (iterator an all ops should splay)
 public final class SplaySortedList<E> extends AbstractList<E> implements SortedList<E> {
     
     private final Comparator<? super E> comparator;

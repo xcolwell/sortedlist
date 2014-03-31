@@ -43,25 +43,29 @@ import javax.annotation.Nullable;
  * using the query comparable instead of the comparator,
  * and achieve the same result as if building a new sorted list. */
 public interface SortedList<E> extends List<E> {
-    /** unsupported operation.
+    /** Unsupported operation.
      * (this cannot satisfy both the sorted list contract and the {@link List#add} contract)
      * @see #insert */
     @Override
+    @Deprecated
     boolean add(E e);
-    /** unsupported operation.
+    /** Unsupported operation.
      * The insertion position is determined by the total ordering and cannot be specified by the caller. 
      * @see #insert */
     @Override
+    @Deprecated
     void add(int index, E e);
     @Override
-    /** unsupported operation.
+    @Deprecated
+    /** Unsupported operation.
      * (this cannot satisfy both the sorted list contract and the {@link List#addAll} contract)
      * @see #insertAll */
     boolean addAll(Collection<? extends E> c);
-    /** unsupported operation.
+    /** Unsupported operation.
      * The insertion position is determined by the total ordering and cannot be specified by the caller. 
      * @see #insertAll */
     @Override
+    @Deprecated
     boolean addAll(int index, Collection<? extends E> c);
     
     
